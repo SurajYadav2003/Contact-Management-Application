@@ -1,0 +1,51 @@
+#include <iostream>
+#include <unordered_map>
+#include <string>
+using namespace std;
+
+using namespace std;
+
+class AddressBook
+{
+	public:
+	bool flag=0;
+	  void  searchd(const unordered_map<string,int>&umap,const string&search){
+	   	 for (auto x:umap)
+	   	 {
+	   	 	if(x.first==search){
+	   	 		cout<<"Phone number for "<<search<<": "<<x.second<<endl; 
+	   	 		flag=1;
+	   	 		break;
+	   	 	}
+	   	 	
+	   	 }
+	   	     if(!flag){
+	   	 
+	   	 		cout<<"Contact not found";
+	   	     }
+	   	 	
+	   }
+
+};
+int main() 
+{
+   unordered_map<string,int>umap;
+   AddressBook obj;
+   int n;
+   cin>>n;
+   if(n>10){
+   	cout<<"Not valid range";
+   	return 0;
+   }
+   for(int i=0;i<n;i++){
+   	  string val;
+   	  int key;
+   	  cin>>val>>key;
+   	  umap[val]=key;
+   }
+   string search;
+   cin>>search;
+   obj.searchd(umap,search);
+   
+    return 0;
+}
